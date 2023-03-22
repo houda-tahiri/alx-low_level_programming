@@ -1,45 +1,50 @@
 #include "main.h"
 /**
- *print_times_table- print if  0 < n < 15
- *@n: input
- *Return: 0
- */
-
+  * print_times_table - Prints the n times table
+  * @n: The number to be checked
+  *
+  * Return: Number matrix
+  */
 void print_times_table(int n)
 {
-	if (n > 0 && n < 15)
-	{
-		int i, j;
+	int x, y, z;
 
-		for (i = 0; i <= n; i++)
+	if (n >= 0 && n <= 14)
+	{
+		for (x = 0; x <= n; x++)
 		{
-			int a = 0;
-
-			for (j = 0; j <= n; j++)
+			for (y = 0; y <= n; y++)
 			{
-				printf("%d", a);
-
-				if (j != n)
+				z = x * y;
+				if (z > 99)
 				{
-					putchar(',');
-					putchar(' ');
-					if (a + i < 10)
-					{
-						putchar(' ');
-						putchar(' ');
-					}
-					else if (a + i < 100)
-					{
-						putchar(' ');
-					}
+					_putchar(',');
+					_putchar(32);
+					_putchar((z / 100) + '0');
+					_putchar(((z / 10) % 10) + '0');
+					_putchar((z % 10) + '0');
 				}
-			a += i;
+				else if (z > 9)
+				{
+					_putchar(',');
+					_putchar(32);
+					_putchar(32);
+					_putchar(((z / 10) % 10) + '0');
+					_putchar((z % 10) + '0');
+				}
+				else
+				{
+					if (y != 0)
+					{
+						_putchar(',');
+						_putchar(32);
+						_putchar(32);
+						_putchar(32);
+					}
+					_putchar(z + '0');
+				}
 			}
-		putchar('\n');
+			_putchar('\n');
 		}
-	}
-	else if (n == 0)
-	{
-		printf("%d\n", n);
 	}
 }
